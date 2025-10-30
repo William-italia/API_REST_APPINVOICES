@@ -3,8 +3,6 @@ import {randomUUID} from 'crypto';
 export class DatabaseMemory {
     #videos = new Map();
 
-    // set, map
-
     list() {
         return Array.from(this.#videos.entries()).map(props => {
             const id = props[0];
@@ -14,6 +12,7 @@ export class DatabaseMemory {
                 id,
                 ...video
             }
+
         });
     }
 
