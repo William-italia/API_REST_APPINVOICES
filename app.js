@@ -1,14 +1,25 @@
-const express = require('express');
-const app = express();
-const mongoose = require('mongoose');
-const helmet = require('helmet');
-const routerUsers = require('./src/routes/users-routes');
-const morgan = require('morgan');
+import express, { response } from 'express';
 
-app.use(morgan('tiny'));
-app.use(routerUsers);
-app.use(helmet());
+const app = express();
+
 app.use(express.json());
-app.use(express.urlencoded({extended: true}));
+
+app.get('/', (request, response) => {
+    response.send('Hello World!');
+    return response.end();
+});
+
+app.get('/node', (request, response) => {
+    response.send('Hello Node.js!');
+    return response.end();
+});
+
+app.get('/express', (request, response) => {
+    response.send('Hello express!');
+    return response.end();
+});
+
 
 app.listen(3000);
+
+// 22:56
